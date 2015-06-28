@@ -1,0 +1,39 @@
+<html>
+<head>
+<title>jQuery, jsPDF an FileSaver pdf save </title>
+
+<script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+<script src="https://parall.ax/parallax/js/jspdf.js"></script>
+
+</head>
+
+<body>
+
+<script type="text/javascript">
+
+//$(document).ready(function(#midiv){
+ //$("#midiv").html("");
+//});
+
+function midivpdf()
+    {
+	var pdf = new jsPDF('p', 'mm',[296, 76]);
+    var source = $('#midiv')[0]
+/*    var specialElementHandlers = {
+		*/
+
+	pdf.fromHTML(
+		source // HTML string or DOM elem ref.
+		, 0.5 // x coord
+		, 0.5 // y coord
+		, {
+			//, 'elementHandlers': specialElementHandlers
+		}
+	)
+	pdf.save('midiv.pdf');
+}
+</script>
+<div id="midiv"> jgjgjg</div>
+<button type="button" onclick="midivpdf();">guardar pdf!</button>
+</body>
+</html>
